@@ -1,55 +1,16 @@
-"""
-Tests for PrimsList algorithm
-Based on ThePrimeagen's kata-machine test cases
-"""
+"""Translated from `kata-machine-js/src/__tests__/PrimsList.ts`."""
 
-import pytest
-from typing import List, Optional, Any
+from tests.helpers import GraphEdge, LIST1
 
 
-@pytest.mark.graph
-def test_prims_list_basic(import_algorithm):
-    """Test basic PrimsList functionality"""
-    prims_list = import_algorithm("PrimsList")
-    
-    # TODO: Implement basic functionality tests
-    # Example test structure:
-    # result = prims_list(test_input)
-    # assert result == expected_output
-    
-    pytest.skip("TODO: Implement PrimsList tests")
-
-
-def test_prims_list_edge_cases(import_algorithm):
-    """Test PrimsList edge cases"""
-    prims_list = import_algorithm("PrimsList")
-    
-    # TODO: Test edge cases like:
-    # - Empty inputs
-    # - Single element inputs
-    # - Boundary conditions
-    # - Invalid inputs
-    
-    pytest.skip("TODO: Implement PrimsList edge case tests")
-
-
-def test_prims_list_performance(import_algorithm):
-    """Test PrimsList performance characteristics"""
-    prims_list = import_algorithm("PrimsList")
-    
-    # TODO: Add performance tests
-    # - Time complexity validation
-    # - Space complexity validation
-    # - Large input handling
-    
-    pytest.skip("TODO: Implement PrimsList performance tests")
-
-
-# TODO: Add algorithm-specific test cases
-# Refer to ThePrimeagen's course for the exact test cases and expectations
-# Each algorithm should have comprehensive tests covering:
-# - Basic functionality
-# - Edge cases
-# - Error conditions
-# - Performance characteristics
-# - Algorithm-specific requirements
+def test_prims_algorithm(import_algorithm):
+    prims = import_algorithm("PrimsList")
+    assert prims(LIST1) == [
+        [GraphEdge(to=2, weight=1), GraphEdge(to=1, weight=3)],
+        [GraphEdge(to=0, weight=3), GraphEdge(to=4, weight=1)],
+        [GraphEdge(to=0, weight=1)],
+        [GraphEdge(to=6, weight=1)],
+        [GraphEdge(to=1, weight=1), GraphEdge(to=5, weight=2)],
+        [GraphEdge(to=4, weight=2), GraphEdge(to=6, weight=1)],
+        [GraphEdge(to=5, weight=1), GraphEdge(to=3, weight=1)],
+    ]

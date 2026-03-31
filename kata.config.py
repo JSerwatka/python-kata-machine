@@ -37,17 +37,21 @@ COURSE_PROGRESSION = [
     "DFSOnBST",
     
     # Week 8: Graph Algorithms
+    "BFSGraphList",
     "BFSGraphMatrix",
     "DFSGraphList",
     
     # Week 9: Advanced Graph Algorithms
-    "Dijkstra",
+    "DijkstraList",
     "PrimsList",
     
     # Week 10: Advanced Data Structures
     "Trie",
     "LRU",
     "Map",
+    "MazeSolver",
+    "MinHeap",
+    "RingBuffer",
 ]
 
 # For backwards compatibility, keep DSA as an alias

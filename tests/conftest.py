@@ -1,11 +1,15 @@
-"""
-Pytest configuration and fixtures for Python Kata-Machine
-"""
+"""Pytest configuration and fixtures for Python Kata-Machine."""
 
+from __future__ import annotations
+
+import importlib
 import sys
-import pytest
 from pathlib import Path
 from typing import Any, Callable, List
+
+import pytest
+
+from tests.helpers import LIST1, LIST2, MATRIX2, TREE, TREE2
 
 
 def pytest_addoption(parser):
@@ -65,31 +69,51 @@ def current_day():
 @pytest.fixture
 def import_algorithm():
     """Fixture to dynamically import algorithms from the current day"""
+
+    name_map = {
+        "LinearSearch": ("day1.linear_search", "linear_search"),
+        "BinarySearchList": ("day2.binary_search_list", "binary_search_list"),
+        "BubbleSort": ("kata_machine_algorithms", "bubble_sort"),
+        "InsertionSort": ("kata_machine_algorithms", "insertion_sort"),
+        "MergeSort": ("kata_machine_algorithms", "merge_sort"),
+        "QuickSort": ("kata_machine_algorithms", "quick_sort"),
+        "TwoCrystalBalls": ("kata_machine_algorithms", "two_crystal_balls"),
+        "BTPreOrder": ("kata_machine_algorithms", "bt_pre_order"),
+        "BTInOrder": ("kata_machine_algorithms", "bt_in_order"),
+        "BTPostOrder": ("kata_machine_algorithms", "bt_post_order"),
+        "BTBFS": ("kata_machine_algorithms", "bt_bfs"),
+        "CompareBinaryTrees": ("kata_machine_algorithms", "compare_binary_trees"),
+        "DFSOnBST": ("kata_machine_algorithms", "dfs_on_bst"),
+        "BFSGraphMatrix": ("kata_machine_algorithms", "bfs_graph_matrix"),
+        "BFSGraphList": ("kata_machine_algorithms", "bfs_graph_list"),
+        "DFSGraphList": ("kata_machine_algorithms", "dfs_graph_list"),
+        "DijkstraList": ("kata_machine_algorithms", "dijkstra_list"),
+        "PrimsList": ("kata_machine_algorithms", "prims_list"),
+        "MazeSolver": ("kata_machine_algorithms", "maze_solver"),
+        "Queue": ("kata_machine_structures", "Queue"),
+        "Stack": ("kata_machine_structures", "Stack"),
+        "ArrayList": ("kata_machine_structures", "ArrayList"),
+        "SinglyLinkedList": ("kata_machine_structures", "SinglyLinkedList"),
+        "DoublyLinkedList": ("kata_machine_structures", "DoublyLinkedList"),
+        "Trie": ("kata_machine_structures", "Trie"),
+        "LRU": ("kata_machine_structures", "LRU"),
+        "Map": ("kata_machine_structures", "Map"),
+        "MinHeap": ("kata_machine_structures", "MinHeap"),
+        "RingBuffer": ("kata_machine_structures", "RingBuffer"),
+    }
+
     def _import_algorithm(algorithm_name: str, day: int = None):
-        """Import an algorithm function from the specified day"""
-        if day is None:
-            # Auto-detect latest day in base directory
-            base_dir = Path(__file__).parent.parent
-            day_dirs = [d for d in base_dir.iterdir() if d.is_dir() and d.name.startswith("day")]
-            if day_dirs:
-                latest_day = max(day_dirs, key=lambda x: int(x.name[3:]))
-                day = int(latest_day.name[3:])
-            else:
-                day = 1
-        
-        # Convert algorithm name to module and function name
-        module_name = _to_snake_case(algorithm_name)
-        function_name = module_name
-        
+        """Import an algorithm function or class by canonical JS name."""
+        if algorithm_name not in name_map:
+            pytest.fail(f"Unknown algorithm requested: {algorithm_name}")
+
+        module_name, symbol_name = name_map[algorithm_name]
+
         try:
-            # Import from the current day directory 
-            base_dir = Path(__file__).parent.parent
-            day_dir = base_dir / f"day{day}"
-            sys.path.insert(0, str(day_dir))
-            module = __import__(f"{module_name}", fromlist=[function_name])
-            return getattr(module, function_name)
+            module = importlib.import_module(module_name)
+            return getattr(module, symbol_name)
         except (ImportError, AttributeError) as e:
-            pytest.fail(f"Could not import {algorithm_name} from day{day}: {e}")
+            pytest.fail(f"Could not import {algorithm_name}: {e}")
     
     return _import_algorithm
 
@@ -130,6 +154,31 @@ def sample_strings():
         "repeated": "aabbcc",
         "palindrome": "racecar"
     }
+
+
+@pytest.fixture
+def tree():
+    return TREE
+
+
+@pytest.fixture
+def tree2():
+    return TREE2
+
+
+@pytest.fixture
+def list1():
+    return LIST1
+
+
+@pytest.fixture
+def list2():
+    return LIST2
+
+
+@pytest.fixture
+def matrix2():
+    return MATRIX2
 
 
 # Performance testing helpers

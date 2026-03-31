@@ -1,55 +1,8 @@
-"""
-Tests for BTPostOrder algorithm
-Based on ThePrimeagen's kata-machine test cases
-"""
+"""Translated from `kata-machine-js/src/__tests__/BTPostOrder.ts`."""
 
-import pytest
-from typing import List, Optional, Any
+from tests.helpers import TREE
 
 
-@pytest.mark.tree
-def test_b_t_post_order_basic(import_algorithm):
-    """Test basic BTPostOrder functionality"""
-    b_t_post_order = import_algorithm("BTPostOrder")
-    
-    # TODO: Implement basic functionality tests
-    # Example test structure:
-    # result = b_t_post_order(test_input)
-    # assert result == expected_output
-    
-    pytest.skip("TODO: Implement BTPostOrder tests")
-
-
-def test_b_t_post_order_edge_cases(import_algorithm):
-    """Test BTPostOrder edge cases"""
-    b_t_post_order = import_algorithm("BTPostOrder")
-    
-    # TODO: Test edge cases like:
-    # - Empty inputs
-    # - Single element inputs
-    # - Boundary conditions
-    # - Invalid inputs
-    
-    pytest.skip("TODO: Implement BTPostOrder edge case tests")
-
-
-def test_b_t_post_order_performance(import_algorithm):
-    """Test BTPostOrder performance characteristics"""
-    b_t_post_order = import_algorithm("BTPostOrder")
-    
-    # TODO: Add performance tests
-    # - Time complexity validation
-    # - Space complexity validation
-    # - Large input handling
-    
-    pytest.skip("TODO: Implement BTPostOrder performance tests")
-
-
-# TODO: Add algorithm-specific test cases
-# Refer to ThePrimeagen's course for the exact test cases and expectations
-# Each algorithm should have comprehensive tests covering:
-# - Basic functionality
-# - Edge cases
-# - Error conditions
-# - Performance characteristics
-# - Algorithm-specific requirements
+def test_bt_post_order(import_algorithm):
+    bt_post_order = import_algorithm("BTPostOrder")
+    assert bt_post_order(TREE) == [7, 5, 15, 10, 29, 45, 30, 100, 50, 20]

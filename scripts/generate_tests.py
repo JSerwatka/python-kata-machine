@@ -25,9 +25,17 @@ class TestFileGenerator:
         self.algorithm_categories = {
             "search": ["LinearSearch", "BinarySearchList", "TwoCrystalBalls"],
             "sort": ["BubbleSort", "InsertionSort", "MergeSort", "QuickSort"],
-            "data_structure": ["Queue", "Stack", "ArrayList", "SinglyLinkedList", "DoublyLinkedList"],
+            "data_structure": [
+                "Queue",
+                "Stack",
+                "ArrayList",
+                "SinglyLinkedList",
+                "DoublyLinkedList",
+                "MinHeap",
+                "RingBuffer",
+            ],
             "tree": ["BTPreOrder", "BTInOrder", "BTPostOrder", "BTBFS", "CompareBinaryTrees", "DFSOnBST"],
-            "graph": ["BFSGraphMatrix", "DFSGraphList", "Dijkstra", "PrimsList"],
+            "graph": ["BFSGraphList", "BFSGraphMatrix", "DFSGraphList", "DijkstraList", "PrimsList", "MazeSolver"],
             "advanced": ["Trie", "LRU", "Map"]
         }
     

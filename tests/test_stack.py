@@ -1,55 +1,20 @@
-"""
-Tests for Stack algorithm
-Based on ThePrimeagen's kata-machine test cases
-"""
-
-import pytest
-from typing import List, Optional, Any
+"""Translated from `kata-machine-js/src/__tests__/Stack.ts`."""
 
 
-@pytest.mark.data_structure
-def test_stack_basic(import_algorithm):
-    """Test basic Stack functionality"""
-    stack = import_algorithm("Stack")
-    
-    # TODO: Implement basic functionality tests
-    # Example test structure:
-    # result = stack(test_input)
-    # assert result == expected_output
-    
-    pytest.skip("TODO: Implement Stack tests")
-
-
-def test_stack_edge_cases(import_algorithm):
-    """Test Stack edge cases"""
-    stack = import_algorithm("Stack")
-    
-    # TODO: Test edge cases like:
-    # - Empty inputs
-    # - Single element inputs
-    # - Boundary conditions
-    # - Invalid inputs
-    
-    pytest.skip("TODO: Implement Stack edge case tests")
-
-
-def test_stack_performance(import_algorithm):
-    """Test Stack performance characteristics"""
-    stack = import_algorithm("Stack")
-    
-    # TODO: Add performance tests
-    # - Time complexity validation
-    # - Space complexity validation
-    # - Large input handling
-    
-    pytest.skip("TODO: Implement Stack performance tests")
-
-
-# TODO: Add algorithm-specific test cases
-# Refer to ThePrimeagen's course for the exact test cases and expectations
-# Each algorithm should have comprehensive tests covering:
-# - Basic functionality
-# - Edge cases
-# - Error conditions
-# - Performance characteristics
-# - Algorithm-specific requirements
+def test_stack(import_algorithm):
+    stack_cls = import_algorithm("Stack")
+    stack = stack_cls()
+    stack.push(5)
+    stack.push(7)
+    stack.push(9)
+    assert stack.pop() == 9
+    assert stack.length == 2
+    stack.push(11)
+    assert stack.pop() == 11
+    assert stack.pop() == 7
+    assert stack.peek() == 5
+    assert stack.pop() == 5
+    assert stack.pop() is None
+    stack.push(69)
+    assert stack.peek() == 69
+    assert stack.length == 1

@@ -107,6 +107,10 @@ def import_algorithm():
         if algorithm_name not in name_map:
             pytest.fail(f"Unknown algorithm requested: {algorithm_name}")
 
+        day_symbol = _import_from_day_module(algorithm_name, day=day)
+        if day_symbol is not None:
+            return day_symbol
+
         module_name, symbol_name = name_map[algorithm_name]
 
         try:
@@ -126,6 +130,33 @@ def _to_snake_case(name: str) -> str:
             result.append('_')
         result.append(char.lower())
     return ''.join(result)
+
+
+def _import_from_day_module(algorithm_name: str, day: int | None = None):
+    """Prefer an existing generated day module over the parity fallback modules."""
+    base_dir = Path(__file__).parent.parent
+    module_name = _to_snake_case(algorithm_name)
+
+    if day is not None:
+        day_dirs = [base_dir / f"day{day}"]
+    else:
+        day_dirs = sorted(
+            [d for d in base_dir.iterdir() if d.is_dir() and d.name.startswith("day")],
+            key=lambda item: int(item.name[3:]),
+            reverse=True,
+        )
+
+    for day_dir in day_dirs:
+        module_path = day_dir / f"{module_name}.py"
+        if not module_path.exists():
+            continue
+        sys.path.insert(0, str(day_dir))
+        sys.modules.pop(module_name, None)
+        module = importlib.import_module(module_name)
+        symbol = getattr(module, module_name, None)
+        if symbol is not None:
+            return symbol
+    return None
 
 
 # Common test data fixtures

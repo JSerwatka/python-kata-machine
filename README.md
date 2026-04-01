@@ -2,6 +2,8 @@
 
 A Python port of ThePrimeagen's [kata-machine](https://github.com/ThePrimeagen/kata-machine) for **daily algorithm practice** without TypeScript.
 
+Fork of [https://github.com/nevermore23274/python-kata-machine](https://github.com/nevermore23274/python-kata-machine) with implemented all tests.
+
 ## What This Is
 
 This project recreates the daily practice workflow from ThePrimeagen's "The Last Algorithms Course You'll Need" but using Python instead of TypeScript. **One algorithm per day**, following the course progression, building algorithmic thinking through spaced repetition.

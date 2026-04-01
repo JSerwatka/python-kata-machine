@@ -35,7 +35,7 @@ python kata.py complete
 ### Daily Practice Flow
 
 1. User runs `python kata.py daily`
-2. `scripts/daily.py` reads `.kata_progress.json` 
+2. `scripts/daily.py` reads `.kata_progress.json`
 3. Generates algorithm file for current day in `day{N}/`
 4. User implements algorithm
 5. `python kata.py test` runs tests via `test_runner.py`
@@ -82,24 +82,10 @@ mypy *.py scripts/*.py
 python -m pytest tests/ -v
 ```
 
-## Container Development
-
-- **Dockerfile** - `docker/Dockerfile`
-- **Dependencies** - `docker/requirements.txt`
-- **Build optimization** - `docker/.dockerignore`
-
-```bash
-# Rebuild container after changes
-docker-compose down
-docker-compose up -d --build
-
-# View container logs
-docker-compose logs python-kata
-```
-
 ## Testing Changes
 
 ### Test Daily Workflow
+
 ```bash
 python kata.py reset          # Start fresh
 python kata.py daily          # Generate day 1
@@ -110,6 +96,7 @@ python kata.py progress       # Check progress tracking
 ```
 
 ### Test Configuration
+
 ```bash
 python kata.py config         # Validate current config
 # Modify kata.config.py
@@ -117,6 +104,7 @@ python kata.py config         # Should catch any errors
 ```
 
 ### Test Cleanup
+
 ```bash
 python kata.py clear          # Clean up practice files
 ls                           # Should only show core system files
@@ -128,7 +116,6 @@ ls                           # Should only show core system files
 - [ ] Daily workflow works end-to-end
 - [ ] Configuration validates correctly
 - [ ] README is up to date
-- [ ] Docker container builds successfully
 - [ ] No practice files committed (.gitignore working)
 
 ## Contributing

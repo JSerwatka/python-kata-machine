@@ -11,7 +11,7 @@ This project recreates the daily practice workflow from ThePrimeagen's "The Last
 ### Setup
 
 ```bash
-git clone https://github.com/nevermore23274/python-kata-machine.git
+git clone https://github.com/JSerwatka/python-kata-machine
 ```
 
 **Daily Workflow:**
@@ -37,7 +37,7 @@ python kata.py reset              # ✅ Start course over
 
 ```bash
 # 1. Clone and setup (one-time)
-git clone https://github.com/nevermore23274/python-kata-machine.git
+git clone https://github.com/JSerwatka/python-kata-machine
 cd python-kata-machine
 
 # 2. Daily practice routine

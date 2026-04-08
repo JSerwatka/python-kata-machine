@@ -11,18 +11,18 @@ COURSE_PROGRESSION = [
     
     # Week 2: Sorting Fundamentals
     "BubbleSort",
-    "InsertionSort",
     
-    # Week 3: Data Structures Basics
+    # Week 3: Data Structur s Basics
+    "SinglyLinkedList",
     "Queue",
     "Stack",
     "ArrayList",
     
     # Week 4: Linked Lists
-    "SinglyLinkedList",
     "DoublyLinkedList",
     
     # Week 5: Advanced Sorting
+    "InsertionSort",
     "MergeSort",
     "QuickSort",
     

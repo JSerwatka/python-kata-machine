@@ -7,6 +7,7 @@ def test_queue(import_algorithm):
     queue.enqueue(5)
     queue.enqueue(7)
     queue.enqueue(9)
+    print(queue)
     assert queue.deque() == 5
     assert queue.length == 2
     queue.enqueue(11)

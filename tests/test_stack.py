@@ -7,6 +7,7 @@ def test_stack(import_algorithm):
     stack.push(5)
     stack.push(7)
     stack.push(9)
+    print(stack)
     assert stack.pop() == 9
     assert stack.length == 2
     stack.push(11)

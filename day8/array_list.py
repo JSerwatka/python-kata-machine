@@ -1,6 +1,6 @@
 """
-BubbleSort Algorithm Implementation
-Daily Practice - Day 4
+ArrayList Algorithm Implementation
+Daily Practice - Day 8
 
 Follow ThePrimeagen's course to implement this algorithm.
 """
@@ -8,12 +8,12 @@ Follow ThePrimeagen's course to implement this algorithm.
 from typing import List, Optional, Any
 
 
-def bubble_sort(*args, **kwargs):
+def array_list(*args, **kwargs):
     """
-    BubbleSort implementation
+    ArrayList implementation
     
     TODO: 
-    1. Follow the course lesson for BubbleSort
+    1. Follow the course lesson for ArrayList
     2. Implement the algorithm step by step
     3. Test your implementation with: python kata.py test
     
@@ -27,23 +27,18 @@ def bubble_sort(*args, **kwargs):
     Time Complexity: O(?) - TODO: Analyze after implementation
     Space Complexity: O(?) - TODO: Analyze after implementation
     """
-    arr, = args
-    for i in range(0, len(arr) - 1):
-        for j in range(0, len(arr) - i):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-
-    return arr
-    
+    # TODO: Implement ArrayList
+    # Remove this line and add your implementation
+    raise NotImplementedError(f"TODO: Implement ArrayList")
 
 
 # Example usage and testing
 if __name__ == "__main__":
     # TODO: Add example usage and basic testing
-    print(f"Testing BubbleSort...")
+    print(f"Testing ArrayList...")
     
     # Example test cases (replace with actual test cases)
-    # result = bubble_sort(test_input)
+    # result = array_list(test_input)
     # print(f"Result: {result}")
     
     print("Run 'python kata.py test' to run the full test suite")

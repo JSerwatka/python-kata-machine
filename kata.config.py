@@ -17,6 +17,7 @@ COURSE_PROGRESSION = [
     "Queue",
     "Stack",
     "ArrayList",
+    "RingBuffer",
     
     # Week 4: Linked Lists
     "DoublyLinkedList",
@@ -51,7 +52,6 @@ COURSE_PROGRESSION = [
     "Map",
     "MazeSolver",
     "MinHeap",
-    "RingBuffer",
 ]
 
 # For backwards compatibility, keep DSA as an alias

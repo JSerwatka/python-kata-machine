@@ -18,6 +18,12 @@ COURSE_PROGRESSION = [
     "Stack",
     "ArrayList",
     "RingBuffer",
+
+    # Week 6: Tree Traversals
+    "BTPreOrder",
+    "BTInOrder", 
+    "BTPostOrder",
+    "BTBFS",
     
     # Week 4: Linked Lists
     "DoublyLinkedList",
@@ -27,11 +33,7 @@ COURSE_PROGRESSION = [
     "MergeSort",
     "QuickSort",
     
-    # Week 6: Tree Traversals
-    "BTPreOrder",
-    "BTInOrder", 
-    "BTPostOrder",
-    "BTBFS",
+
     
     # Week 7: Tree Operations
     "CompareBinaryTrees",
